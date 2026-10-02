@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FBR Tax FAQ Chatbot</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <style>
+    [hidden] { display: none !important; }
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+    h1 { font-size: 1.3rem; }
+    .note { color: #666; font-size: 0.85rem; margin-bottom: 1rem; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #555; margin-bottom: 1rem; }
+    #chat { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; }
+    .msg { padding: 0.6rem 0.9rem; border-radius: 8px; }
+    .user { background: #e8f0fe; align-self: flex-end; max-width: 85%; white-space: pre-wrap; }
+    .bot { background: #f3f3f3; line-height: 1.5; }
+    .bot p { margin: 0.4rem 0; }
+    .bot table { border-collapse: collapse; margin: 0.6rem 0; font-size: 0.9rem; width: 100%; }
+    .bot th, .bot td { border: 1px solid #ccc; padding: 0.35rem 0.6rem; text-align: left; vertical-align: top; }
+    .bot th { background: #e6e6e6; }
+    .bot ul, .bot ol { margin: 0.4rem 0; padding-left: 1.4rem; }
+    .error { background: #fde8e8; }
+    .sources { margin-top: 0.5rem; font-size: 0.85rem; border-top: 1px solid #ddd; padding-top: 0.5rem; }
+    .sources a { color: #1a5fb4; }
+    form { display: flex; gap: 0.5rem; }
+    input { flex: 1; padding: 0.6rem; font-size: 1rem; }
+    button { padding: 0.6rem 1rem; font-size: 1rem; cursor: pointer; }
+    #authForm { flex-direction: column; max-width: 340px; }
+    #authMsg { color: #b00020; font-size: 0.9rem; margin-top: 0.5rem; min-height: 1.2rem; }
+    .linkbtn { background: none; border: none; color: #1a5fb4; padding: 0; font-size: 0.85rem; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>FBR Tax FAQ Chatbot</h1>
+  <div class="note">General FBR tax law and procedure questions only. It cannot look up personal tax accounts.</div>
+
+  <div id="auth" hidden>
+    <form id="authForm">
+      <input id="email" type="email" placeholder="Email" autocomplete="email" required>
+      <input id="password" type="password" placeholder="Password (min 6 characters)" autocomplete="current-password" required minlength="6">
+      <button type="submit">Sign in</button>
+      <button type="button" id="signupBtn">Create account</button>
+    </form>
+    <div id="authMsg"></div>
+  </div>
+
+  <div id="app" hidden>
+    <div class="topbar">
+      <span id="userEmail"></span>
+      <button class="linkbtn" id="signoutBtn" type="button">Sign out</button>
+    </div>
+    <div id="chat"></div>
+    <form id="form">
+      <input id="q" type="text" placeholder="Ask a tax question..." autocomplete="off" required minlength="3" maxlength="500">
+      <button id="send" type="submit">Ask</button>
+    </form>
+  </div>
+
+  <script>
+    let sb = null;
+
+    const authBox = document.getElementById("auth");
+    const appBox = document.getElementById("app");
+    const authForm = document.getElementById("authForm");
+    const authMsg = document.getElementById("authMsg");
+    const emailEl = document.getElementById("email");
+    const passEl = document.getElementById("password");
+    const userEmail = document.getElementById("userEmail");
+    const chat = document.getElementById("chat");
+    const form = document.getElementById("form");
+    const input = document.getElementById("q");
+    const send = document.getElementById("send");
+
+    function showState(session) {
+      authBox.hidden = !!session;
+      appBox.hidden = !session;
+      userEmail.textContent = session ? session.user.email : "";
+    }
+
+    async function init() {
+      try {
+        const res = await fetch("/config");
+        if (!res.ok) throw new Error("config failed");
+        const cfg = await res.json();
+        sb = supabase.createClient(cfg.supabase_url, cfg.supabase_key);
+      } catch (e) {
+        authBox.hidden = false;
+        authMsg.textContent = "Could not load login configuration. Is the server set up correctly?";
+        return;
+      }
+      sb.auth.onAuthStateChange((_event, session) => showState(session));
+      const { data } = await sb.auth.getSession();
+      showState(data.session);
+    }
+
+    async function doAuth(kind) {
+      if (!authForm.reportValidity()) return;
+      authMsg.textContent = "";
+      const creds = { email: emailEl.value.trim(), password: passEl.value };
+      const { data, error } = kind === "signup"
+        ? await sb.auth.signUp(creds)
+        : await sb.auth.signInWithPassword(creds);
+      if (error) { authMsg.textContent = error.message; return; }
+      if (kind === "signup" && !data.session) {
+        authMsg.textContent = "Account created. Check your email to confirm it, then sign in.";
+      }
+      passEl.value = "";
+    }
+
+    authForm.addEventListener("submit", (e) => { e.preventDefault(); doAuth("signin"); });
+    document.getElementById("signupBtn").addEventListener("click", () => doAuth("signup"));
+    document.getElementById("signoutBtn").addEventListener("click", async () => {
+      await sb.auth.signOut();
+      chat.innerHTML = "";
+    });
+
+    function addMsg(text, cls) {
+      const div = document.createElement("div");
+      div.className = "msg " + cls;
+      div.textContent = text;   // textContent, never innerHTML: model output is untrusted
+      chat.appendChild(div);
+      div.scrollIntoView({ behavior: "smooth", block: "end" });
+      return div;
+    }
+
+    function addSources(botDiv, data) {
+      if (!data.sources || data.sources.length === 0) return;
+      const box = document.createElement("div");
+      box.className = "sources";
+      box.append("Sources:");
+      data.sources.forEach((s) => {
+        const row = document.createElement("div");
+        const a = document.createElement("a");
+        a.href = s.source_url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = `${s.marker} ${s.title}`;
+        row.appendChild(a);
+        box.appendChild(row);
+      });
+      botDiv.appendChild(box);
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const question = input.value.trim();
+      if (!question) return;
+
+      const { data: sess } = await sb.auth.getSession();
+      if (!sess.session) { showState(null); return; }
+
+      addMsg(question, "user");
+      input.value = "";
+      send.disabled = true;
+      const pending = addMsg("Thinking...", "bot");
+      try {
+        const res = await fetch("/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + sess.session.access_token,
+          },
+          body: JSON.stringify({ question }),
+        });
+        const data = await res.json();
+        if (res.status === 401) {
+          pending.className = "msg error";
+          pending.textContent = "Your session expired. Please sign in again.";
+          await sb.auth.signOut();
+        } else if (!res.ok) {
+          pending.className = "msg error";
+          const detail = typeof data.detail === "string" ? data.detail : "Please enter a valid question (3-500 characters).";
+          pending.textContent = `Error ${res.status}: ${detail}`;
+        } else {
+          pending.innerHTML = DOMPurify.sanitize(marked.parse(data.answer));
+          addSources(pending, data);
+        }
+      } catch (err) {
+        pending.className = "msg error";
+        pending.textContent = "Could not reach the server.";
+      } finally {
+        send.disabled = false;
+        input.focus();
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>

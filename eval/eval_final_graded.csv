@@ -1,0 +1,182 @@
+id,question,topic,type,expected_behavior,answer,num_sources,auto_flag,score,notes
+1,What documents do I need to register for an NTN as an individual?,NTN Registration,direct,Should retrieve and answer from corpus,"To register for a National Tax Number (NTN) as an **individual**, you must present the following documents at a Facilitation Counter of any Tax House:
+
+1. Original CNIC (or NICOP/Passport) [1]  
+2. A cell phone with a SIM that is registered against your own CNIC [1]  
+3. Your personal e‑mail address [1]  
+4. Original certificate showing maintenance of a personal bank account in your own name [1]  
+5. If you have a business:  
+   - Original evidence of tenancy or ownership of the business premises [1]  
+   - Original paid utility bill for the business premises (not older than 3 months) [1]
+
+These are the documents specifically listed for individual registration in the provided FBR material. The context does not mention any additional paperwork beyond what is listed above.",1,,correct,Borderline: adds '(or NICOP/Passport)' which the cited chunk does not state.
+2,How do I register an AOP/partnership for income tax?,NTN Registration,direct,Should retrieve and answer from corpus,"To register an Association of Persons (AOP) / partnership for Income Tax you need to follow these steps:
+
+1. **Visit a Facilitation Counter** – The authorised member or partner must go in person to any Facilitation Counter of any Tax House [1][6].
+
+2. **Carry the required original documents** [1]:
+   - Original partnership deed (for a firm) **or** original registration certificate from the Registrar of Firms (for a firm).  
+   - CNICs of **all** members/partners.  
+   - An original letter on the AOP’s letter‑head, signed by **all** members/partners, authorising the person who will register.  
+   - A cell phone with a SIM that is registered against the person’s own CNIC and **not** already registered with the FBR.  
+   - An email address belonging to the AOP.  
+   - Original certificate showing maintenance of a bank account in the AOP’s name.  
+   - Original evidence of tenancy or ownership of the business premises (if the AOP has a business).  
+   - Original paid utility bill for the business premises, not older than three months (if the AOP has a business).
+
+3. **Submit the documents at the counter** – Hand over the above documents to the staff at the Facilitation Counter, who will process the Income Tax registration for the AOP.
+
+The retrieved context does not include any further procedural details such as online e‑enrollment forms, fees, or post‑registration steps. Those aspects are not covered in the provided documents.",2,,partial,Says partnership deed OR registration certificate; chunk requires both for a firm. Known limitation: model paraphrase error on document lists.
+3,How do I cancel my income tax registration?,NTN Registration,direct,Should retrieve and answer from corpus,"To cancel your Income Tax Registration, the Federal Board of Revenue states that:
+
+* The Commissioner can issue a written order cancelling the registration of a taxpayer **after confirming that there is no outstanding tax liability** and that the information, particulars, data or documents on file justify such a cancellation[1].  
+
+The documents do not detail the exact procedural steps you must follow (e.g., whether you need to submit a formal request, visit an RTO, or apply through IRIS). For those procedural details, the provided context does not contain further information.",1,,correct,
+4,I changed my address -- how do I update my registration details?,NTN Registration,paraphrase,Should retrieve and answer from corpus,"You can update the address (and other registration details) in one of two ways:
+
+1. **Online through IRIS** – Log in to the IRIS portal and submit a modification using **Registration Form 181**. The address can be changed together with other details such as mobile number, business address, etc. [1]
+
+2. **In‑person at the Regional Tax Office (RTO)** – If you prefer to handle the change offline, visit the RTO that issued your registration and submit the required documents for the address change. [1]  
+
+The context does not specify any additional forms, fees or exact documents that must be presented at the RTO for an address change, so for those details you would need to consult the RTO directly.",1,,partial,"Iris Form 181 route is correct. Adds an RTO in-person option for address changes that the cited chunk does not list for addresses (closest row to hallucinated). Known limitation, not prompt-patched (avoids teaching to the test)."
+5,What's the deadline for filing my income tax return?,Filing FAQs,direct,Should retrieve and answer from corpus,"The filing deadline depends on the type of taxpayer:
+
+* **Individuals and Associations of Persons (AOP)** – must file their Income Tax Return on or before **30 September** of the tax year [2].  
+* **Companies** – must file on or before **31 December** of the tax year [2].  
+* **Companies with a special tax year** – must file on or before **30 September** of the tax year [2].
+
+If you file after the due date, you still have to complete the return as usual [1].",2,,correct,
+6,Can I still file my return if I missed the deadline?,Filing FAQs,direct,Should retrieve and answer from corpus,Yes. You can still file your Income Tax Return after the due date; you just have to complete the filing in the same way as you would have before the deadline [1].,1,,partial,"Answers 'yes, you can file late' correctly but omits the ATL surcharge (Rs. 20,000 company / 10,000 AOP / 1,000 individual). Retrieval returned 1 source; surcharge chunk not retrieved. Known limitation, documented rather than fixed."
+7,How long do I need to keep my tax records?,Filing FAQs,direct,Should retrieve and answer from corpus,Taxpayers are required to retain their Income Tax Return records for six (6) years. [1],1,,correct,
+8,I forgot my Iris login password -- what do I do?,Filing FAQs,direct,Should retrieve and answer from corpus,"If you have forgotten your Iris login password, you can reset it:
+
+1. On the Iris login screen click **‘Forgot Password’**[1].  
+2. Enter all the required information in the fields that appear.  
+3. Codes will be sent to your registered email address and mobile number.  
+4. Enter those codes in the provided fields.  
+5. A new window will open giving you the option to set a new password[1].  
+
+The provided context covers the password‑reset procedure; it does not include any additional steps beyond what is described above.",1,,correct,
+9,Is my personal information safe when I file online?,Filing FAQs,paraphrase,Should retrieve and answer from corpus,"Yes. According to the FBR’s privacy statement, your personal information is not disclosed to anyone except tax officials when you file your Income Tax Return online [1]. The provided context does not mention any additional safeguards or how the information is stored, so details beyond this statement are not covered.",1,,correct,
+10,What's the penalty if I pay my tax late?,Filing FAQs,direct,Should retrieve and answer from corpus,"If you do not pay the tax that is due on the prescribed date, the law provides that you will be subject to a penalty or a default surcharge or both. In addition, failing to make the required payment is an offence that can be punished on conviction with a fine, imprisonment for a term not exceeding one year, or both[1].",1,,correct,
+11,What income tax rate applies to someone earning Rs. 2500000 a year?,Salary/Slabs,direct,Should retrieve Section 149 bracket and compute correctly,"For a salary (employment income) of **Rs. 2,500,000** per year, the applicable withholding‑tax provision is the one that covers taxable income **exceeding Rs. 2,200,000 but not exceeding Rs. 3,200,000**.  
+
+According to the rate card, in that band the tax is:
+
+- **Rs. 116,000** plus **20 %** of the amount that exceeds Rs. 2,200,000[7].
+
+So the tax payable would be calculated as:
+
+\[
+\text{Tax} = 116{,}000 \;+\; 0.20 \times (2{,}500{,}000 - 2{,}200{,}000)
+           = 116{,}000 \;+\; 0.20 \times 300{,}000
+           = 116{,}000 \;+\; 60{,}000
+           = \text{Rs. 176,000}
+\]
+
+Thus, the rate that applies is **Rs. 116,000 plus 20 % of the excess over Rs. 2,200,000**. The provided context does not contain any additional information beyond this salary‑tax bracket.",1,,correct,"Rs. 116,000 + 20% of excess = Rs. 176,000. Output contained raw LaTeX that the UI does not render. Also assumed salary without asking, unlike Q25."
+12,What's the withholding tax rate on rent for an individual if the rent is Rs. 500000?,Salary/Slabs,direct,Tests the manually-corrected Section 155 data,"For an individual whose gross rent is **Rs. 500,000**, the amount falls in the bracket “exceeds Rs. 300,000 but does not exceed Rs. 600,000” [3].  
+The rate for this bracket is **5 % of the gross amount exceeding Rs. 300,000** [3].
+
+**Calculation**
+
+- Excess over Rs. 300,000 = Rs. 500,000 − Rs. 300,000 = **Rs. 200,000**  
+- Tax = 5 % × Rs. 200,000 = **Rs. 10,000**
+
+**Withholding tax payable:** **Rs. 10,000**.",1,,correct,
+13,What withholding tax applies to dividends from a REIT?,Salary/Slabs,direct,Dense WHT card retrieval test,"The withholding‑tax rates for dividends **paid by a Real Estate Investment Trust (REIT) to its investors** are:
+
+* **ATL (Active Taxpayer List) rate:** 15 %  
+* **Non‑ATL rate:** 30 %  
+
+These rates are specified for the general case of REIT dividends that are not covered by any more specific rows (e.g., IPP, mutual‑fund or Special‑Purpose‑Vehicle rows) [1].
+
+(If the question were about dividends **received** by a REIT from a Special‑Purpose Vehicle, the rate would be 0 % for both ATL and Non‑ATL, but the query asks about dividends *from* a REIT.)",1,,correct,General REIT row 15% ATL / 30% non-ATL. Previously a known confusing row; confirmed by owner.
+14,How is a property's value determined for tax purposes?,Salary/Slabs,direct,Should retrieve and answer from corpus,"The Federal Board of Revenue determines the taxable value of an immovable property by applying the **city‑specific rates of valuation** that it publishes for each location. For every city (e.g., Abbott abad, Lahore, Karachi, etc.) the FBR provides a valuation rate that is used to calculate the property’s assessed value for tax purposes [1][2][3][4][5][6][7].  
+
+The documents you provided list those rates for many cities, but they do not describe the detailed calculation method (e.g., how the rate is applied to the size, type or market price of the property). Therefore, the part of the answer that explains the exact formula or factors used beyond the city‑specific rate is **not covered** by the provided context.",7,,partial,Corpus holds only a city-link list; bot correctly says the calculation method is not covered. Cites 7 chunks for one list and contains the typo 'Abbott abad'.
+15,How do I check if someone is on the Active Taxpayer List?,ATL Rules,direct,Should retrieve and answer from corpus,"You can verify a person’s Active Taxpayer List (ATL) status in three different ways:
+
+1. **Online portal verification** – Use the FBR’s ATL status‑check service on the e‑FBR portal. The link provided on the portal lets you confirm the ATL status directly online[3].  
+
+2. **Download the ATL file** – The complete ATL can be downloaded from the FBR website (the “Active Taxpayer List (Income Tax)” download link). Once you have the file you can search for the individual’s CNIC or NTN to see if they appear on the list[2].  
+
+3. **SMS request** –  
+   * For an individual, send an SMS to **9966** with the text:  
+     `ATL <space> 13‑digit CNIC` (e.g., `ATL 1234567890123`).  
+   * For an AOP or company, send:  
+     `ATL <space> 7‑digit NTN` (e.g., `ATL 1234567`).  
+   * For AJ&K individuals, send:  
+     `AJKATL <space> CNIC` (without dashes).  
+   * For AJ&K AOP/company, send:  
+     `AJKATL <space> 11‑digit NTN` (without dashes).  
+   The reply will indicate whether the number is on the ATL[6].
+
+These three methods cover the ways to check if someone is on the Active Taxpayer List. The provided context does not mention any other verification channels, so any additional methods are not covered here.",3,,correct,Minor embellishment: suggests searching the downloaded list by CNIC/NTN.
+16,What are the benefits of being on the Active Taxpayer List?,ATL Rules,direct,Should retrieve and answer from corpus,"Being on the Active Taxpayer List (ATL) gives you several tax‑related advantages:
+
+- Lower rates of tax deduction at source by banks on both profits and cash withdrawals[1]  
+- Reduction on withholding tax when registering and transferring motor vehicles[1]  
+- Lower rate of tax on buying and selling of property[1]  
+- Lower withholding tax rate on capital gains from the sale of securities[1]  
+- Lower tax charged on dividends[1]  
+- Lower withholding tax rate on prize‑bond winnings[1]  
+- Ability to claim back any over‑paid tax that has been withheld[1]
+
+The provided context fully covers these benefits; no additional information is needed.",1,,correct,
+17,Who counts as a tax resident of Pakistan?,Income Tax Basics,direct,Should retrieve and answer from corpus,"A tax resident of Pakistan is anyone who meets one of the following conditions in a tax year [1]:
+
+* **Individuals** – an individual is resident if he/she  
+  1. is present in Pakistan for a total of **183 days or more** in that tax year; or  
+  2. is present in Pakistan for **120 days or more** in that tax year **and** was present in Pakistan for at least **365 days in total during the four preceding tax years**; or  
+  3. is an employee or official of the Federal or a Provincial Government who is posted abroad for that tax year.  
+
+* **Associations of Persons (AOP)** – an AOP is resident when the **control and management of its affairs is situated wholly or partly in Pakistan at any time** during the year.  
+
+* **Companies** – a company is resident when any of the following is true:  
+  1. it is incorporated or formed under any law in force in Pakistan;  
+  2. the control and management of its affairs is situated wholly in Pakistan at any time in the year; or  
+  3. it is a Provincial Government or a local Government in Pakistan.  
+
+These are the only categories covered in the provided context. No additional categories (e.g., trusts, non‑resident entities) are mentioned there.",1,,correct,
+18,What is a Tax Year vs a Special Tax Year?,Income Tax Basics,direct,Should retrieve and answer from corpus,"A **Tax Year** (also called the Normal Tax Year) is the regular twelve‑month financial period that ends on 30 June. It is identified by the calendar year in which that 30 June falls — for example, the period 1 July 2017 to 30 June 2018 is the tax year denoted as calendar year 2018 [2].
+
+A **Special Tax Year** is also a twelve‑month period, but it is defined by the calendar year in which its closing date occurs, rather than by the 30 June financial year end. It is used for periods that do not align with the normal tax year; e.g., 1 January 2017 to 31 December 2017 is a special tax year denoted as calendar year 2018, and 1 October 2017 to 30 September 2018 is a special tax year denoted as calendar year 2019 [1].
+
+The provided context fully covers the definitions of both terms.",2,,correct,
+19,What is income tax?,Income Tax Basics,direct,"No clean plain-language definition in corpus -- expect partial, not a fail","Income tax is the tax imposed on a person’s **taxable income** – i.e., the total income that remains after deducting qualifying donations and other allowable allowances [1]. Taxable income is calculated as the **total income** (the aggregate of income chargeable to tax under each head of income such as salary, income from property, income from business, capital gains and other sources) reduced by those deductions [3][4].  
+
+The definition of a “person” who may be subject to income tax includes individuals, companies or associations of persons, as well as various government bodies and international organisations [2].  
+
+The context does not provide a broader legal definition of “income tax” itself (e.g., the statutory purpose or the governing law), so the answer is limited to the description of taxable income and the categories of persons and income heads that are subject to it.",4,,partial,Expected partial: no plain-language definition of income tax in corpus. Bot defines via taxable income and states the limit.
+20,Can you check my personal tax filing history?,Out of scope,refusal,Must refuse -- personal/account data is out of scope (rule 1.1),"I’m sorry, but I can’t help with that. Accessing or reviewing an individual’s personal tax filing history is outside the scope of what I can provide.",0,,refused_correctly,
+21,How do I log into IRIS with my CNIC and password?,Filing FAQs,direct,"Corrected 2026-09-24: general login-procedure questions are in-scope public FAQ content (corpus deliberately includes ""Password for Iris login""). Refusal is reserved for actual personal/account lookups (see Q20) or the bot performing a real login. Originally mislabeled refusal; corrected after Phase 4 testing showed the answer was accurate and well-grounded.","To log into the IRIS portal you need to enter the number that was issued to you during e‑enrollment (your NTN or Registration Number) together with the password you set at that time[3].  
+
+The provided documents do not describe a way to log in using a CNIC directly; they only mention using the NTN/Registration Number and password[3]. If you have not yet received an NTN/Registration Number, you will need to complete the e‑enrollment process first.",1,,correct,
+22,How do I fill out the manual paper tax return form?,Out of scope,refusal,Must refuse or point to online Iris process -- known scope gap,"The provided documents only tell you that the manual paper return for the 2024 tax year is available as a downloadable Excel file – you can get it from the link shown in source [1]. However, the context explicitly notes that “step‑by‑step completion guidance is not covered here; for filing an Income Tax Return, see the online Iris filing process instead” [1].
+
+So, based on the retrieved information:
+
+* The manual paper return form can be downloaded from the FBR website at the URL given in source [1].  
+* Detailed instructions on how to fill it out are **not** included in the provided context; you would need to refer to the online Iris filing process or other guidance not present here.
+
+If you need step‑by‑step help, the documents suggest using the online Iris system rather than the paper form, but the specific instructions for completing the paper form are not covered in the retrieved context.",1,CHECK: refusal/clarification type but answer has citations,correct,auto_flag is a false positive: the only citation is the link-only reference chunk. Correctly points to the online Iris process without inventing steps.
+23,My taxable salary income is Rs. 300000 a year -- how much income tax do I owe?,Salary/Slabs,calculation,"Unambiguous 0% bracket, expect Rs. 0","Your taxable salary of Rs. 300,000 falls in the first salary bracket, where taxable income does not exceed Rs. 600,000. For this bracket the tax rate is 0% [7].  
+
+**Income tax payable:** Rs. 0.",1,,correct,
+24,My taxable salary income is Rs. 1500000 a year -- how much tax will I pay?,Salary/Slabs,calculation,Tests formula application: Rs 6000 + 11% of amount over Rs. 1200000 = Rs. 39000,"Your taxable salary of **Rs. 1,500,000** falls in the income‑range that “exceeds Rs. 1,200,000 but does not exceed Rs. 2,200,000.”  
+For that bracket the rate card states:
+
+- Fixed amount: **Rs. 6,000**  
+- Plus **11 %** of the amount exceeding Rs. 1,200,000[5]  
+
+**Calculation**
+
+1. Excess over Rs. 1,200,000 = Rs. 1,500,000 − Rs. 1,200,000 = **Rs. 300,000**  
+2. 11 % of Rs. 300,000 = 0.11 × 300,000 = **Rs. 33,000**  
+3. Total tax = Rs. 6,000 + Rs. 33,000 = **Rs. 39,000**
+
+**Tax payable:** **Rs. 39,000** per year.",1,,correct,
+25,My revenue is 3 lacs -- how much income tax do I pay?,Ambiguous,clarification,"Ambiguous (salary vs business income, period unclear) -- bot should ask/clarify, not silently guess. Also: no general non-salary slab table exists in corpus.","I’m not sure whether you are referring to **salary/employment income** or to another type of income (e.g., business or self‑employment revenue). The rate‑card sections provided above only contain tax rates for **salary** (Section 149) and for payments to **non‑residents** (Section 152).  
+
+Could you please confirm that the Rs. 300,000 you mentioned is **salary (employment income)**? Once I have that clarification I can show the applicable tax calculation using the relevant salary brackets.",0,,correct,"Asks for clarification instead of guessing. Answer says the rate card 'only' contains Section 149 and 152, which violates prompt rule 1 and is false for the full card. Run-to-run non-determinism on this question documented separately."

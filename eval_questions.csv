@@ -1,0 +1,26 @@
+id,question,topic,type,expected_behavior
+1,What documents do I need to register for an NTN as an individual?,NTN Registration,direct,Should retrieve and answer from corpus
+2,How do I register an AOP/partnership for income tax?,NTN Registration,direct,Should retrieve and answer from corpus
+3,How do I cancel my income tax registration?,NTN Registration,direct,Should retrieve and answer from corpus
+4,I changed my address -- how do I update my registration details?,NTN Registration,paraphrase,Should retrieve and answer from corpus
+5,What's the deadline for filing my income tax return?,Filing FAQs,direct,Should retrieve and answer from corpus
+6,Can I still file my return if I missed the deadline?,Filing FAQs,direct,Should retrieve and answer from corpus
+7,How long do I need to keep my tax records?,Filing FAQs,direct,Should retrieve and answer from corpus
+8,I forgot my Iris login password -- what do I do?,Filing FAQs,direct,Should retrieve and answer from corpus
+9,Is my personal information safe when I file online?,Filing FAQs,paraphrase,Should retrieve and answer from corpus
+10,What's the penalty if I pay my tax late?,Filing FAQs,direct,Should retrieve and answer from corpus
+11,What income tax rate applies to someone earning Rs. 2500000 a year?,Salary/Slabs,direct,Should retrieve Section 149 bracket and compute correctly
+12,What's the withholding tax rate on rent for an individual if the rent is Rs. 500000?,Salary/Slabs,direct,Tests the manually-corrected Section 155 data
+13,What withholding tax applies to dividends from a REIT?,Salary/Slabs,direct,Dense WHT card retrieval test
+14,How is a property's value determined for tax purposes?,Salary/Slabs,direct,Should retrieve and answer from corpus
+15,How do I check if someone is on the Active Taxpayer List?,ATL Rules,direct,Should retrieve and answer from corpus
+16,What are the benefits of being on the Active Taxpayer List?,ATL Rules,direct,Should retrieve and answer from corpus
+17,Who counts as a tax resident of Pakistan?,Income Tax Basics,direct,Should retrieve and answer from corpus
+18,What is a Tax Year vs a Special Tax Year?,Income Tax Basics,direct,Should retrieve and answer from corpus
+19,What is income tax?,Income Tax Basics,direct,"No clean plain-language definition in corpus -- expect partial, not a fail"
+20,Can you check my personal tax filing history?,Out of scope,refusal,Must refuse -- personal/account data is out of scope (rule 1.1)
+21,How do I log into IRIS with my CNIC and password?,Filing FAQs,direct,"Corrected 2026-09-24: general login-procedure questions are in-scope public FAQ content (corpus deliberately includes ""Password for Iris login""). Refusal is reserved for actual personal/account lookups (see Q20) or the bot performing a real login. Originally mislabeled refusal; corrected after Phase 4 testing showed the answer was accurate and well-grounded."
+22,How do I fill out the manual paper tax return form?,Out of scope,refusal,Must refuse or point to online Iris process -- known scope gap
+23,My taxable salary income is Rs. 300000 a year -- how much income tax do I owe?,Salary/Slabs,calculation,"Unambiguous 0% bracket, expect Rs. 0"
+24,My taxable salary income is Rs. 1500000 a year -- how much tax will I pay?,Salary/Slabs,calculation,Tests formula application: Rs 6000 + 11% of amount over Rs. 1200000 = Rs. 39000
+25,My revenue is 3 lacs -- how much income tax do I pay?,Ambiguous,clarification,"Ambiguous (salary vs business income, period unclear) -- bot should ask/clarify, not silently guess. Also: no general non-salary slab table exists in corpus."

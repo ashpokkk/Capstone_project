@@ -1,0 +1,568 @@
+Running 25 eval questions through retrieval (top-5 each)
+
+================================================================================
+Q1 [NTN Registration / direct]: What documents do I need to register for an NTN as an individual?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.7520) Registration process > For Registration of an Individual, the Individual must:
+     Registration process
+For Registration of an Individual, the Individual must:
+1. Personally go to any Facilitation Counter of any Tax House;
+2. Take th...
+  2. (dist=0.7974) Requirements before Registration > An individual needs to ensure that the following information is available before starting e-enrollment.
+     Requirements before Registration
+An individual needs to ensure that the following information is available before starting e-enrollment.
+Requirements ...
+  3. (dist=0.8560) Registration process > For Registration of a Company, the Principal Officer must:
+     Registration process
+For Registration of a Company, the Principal Officer must:
+1. Personally go to any Facilitation Counter of any Tax House
+2. Take ...
+  4. (dist=0.8697) Requirements before Registration > Following particulars are required for registration:
+     Requirements before Registration
+Principal Officer of Company and AOP needs to ensure that the following information is available before starting e-en...
+  5. (dist=0.9484) Registration process > Online Registration
+     Registration process
+Online Registration
+**Online registration is available only for:**
+1. Individual and not for Association of Person or Company;
+**...
+
+================================================================================
+Q2 [NTN Registration / direct]: How do I register an AOP/partnership for income tax?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.4941) Registration process > For Registration of an AOP, anyone of the Members / Partners must:
+     Registration process
+For Registration of an AOP, anyone of the Members / Partners must:
+1. Personally go to any Facilitation Counter of any Tax House
+...
+  2. (dist=0.7477) Register For Income Tax (Taxpayer Registration basics) > Register For Income Tax
+     Register For Income Tax
+The first step of filing your Income Tax Return is to register yourself with Federal Board of Revenue (FBR).
+- For Income Tax ...
+  3. (dist=0.7831) Income Tax Due Dates > None [MANUALLY CORRECTED]
+     Income Tax Due Dates: Individuals and Associations of Persons (AOP) must file their Income Tax Return on or before 30th September. Companies must file...
+  4. (dist=0.8220) Requirements before Registration > Following particulars are required for registration:
+     Requirements before Registration
+Principal Officer of Company and AOP needs to ensure that the following information is available before starting e-en...
+  5. (dist=0.9556) Registration process > For Registration of a Company, the Principal Officer must:
+     Registration process
+For Registration of a Company, the Principal Officer must:
+1. Personally go to any Facilitation Counter of any Tax House
+2. Take ...
+
+================================================================================
+Q3 [NTN Registration / direct]: How do I cancel my income tax registration?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.5637) Cancellation of Income Tax Registration > Cancellation of Income Tax Registration
+     Cancellation of Income Tax Registration
+Commissioner may by order in writing cancel the Income Tax Registration of a taxpayer after ascertaining that ...
+  2. (dist=0.9980) Change Your Personal Details > Change Your Personal Details
+     Change Your Personal Details
+A person can change their registration information recorded for filing Income Tax Return in two (2) possible ways.
+1. 
+Ch...
+  3. (dist=1.0348) Register For Income Tax (Taxpayer Registration basics) > Register For Income Tax
+     Register For Income Tax
+The first step of filing your Income Tax Return is to register yourself with Federal Board of Revenue (FBR).
+- For Income Tax ...
+  4. (dist=1.0541) Registration process > Registration at Facilitation Counters of Tax Houses
+     Registration process
+Registration at Facilitation Counters of Tax Houses
+**Registration at Facilitation Counters of Tax Houses is available for all:**...
+  5. (dist=1.0628) Modification of Income Tax Registration > Modification of Income Tax Registration
+     Modification of Income Tax Registration
+Income Tax Registration of a person can be modified after discovering any change or omission in any informatio...
+
+================================================================================
+Q4 [NTN Registration / paraphrase]: I changed my address -- how do I update my registration details?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=1.0123) Change Your Personal Details > Change Your Personal Details
+     Change Your Personal Details
+A person can change their registration information recorded for filing Income Tax Return in two (2) possible ways.
+1. 
+Ch...
+  2. (dist=1.0124) Change in particulars of Registration > Change in particulars of Registration
+     Change in particulars of Registration
+In case there is a change in the name address, or other particulars as stated in the registration certificate, t...
+  3. (dist=1.1802) Modification of Income Tax Registration > Modification of Income Tax Registration
+     Modification of Income Tax Registration
+Income Tax Registration of a person can be modified after discovering any change or omission in any informatio...
+  4. (dist=1.3063) Registration process > For Registration of an Individual, the Individual must:
+     Registration process
+For Registration of an Individual, the Individual must:
+1. Personally go to any Facilitation Counter of any Tax House;
+2. Take th...
+  5. (dist=1.3419) Registration process > For Registration of an AOP, anyone of the Members / Partners must:
+     Registration process
+For Registration of an AOP, anyone of the Members / Partners must:
+1. Personally go to any Facilitation Counter of any Tax House
+...
+
+================================================================================
+Q5 [Filing FAQs / direct]: What's the deadline for filing my income tax return?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.5721) Filing Income Tax Return after deadline > Filing Income Tax Return after deadline
+     Filing Income Tax Return after deadline
+To file the online Income Tax Return after due date you would still have to complete the filing of Income Tax ...
+  2. (dist=0.7946) Income Tax Due Dates > None [MANUALLY CORRECTED]
+     Income Tax Due Dates: Individuals and Associations of Persons (AOP) must file their Income Tax Return on or before 30th September. Companies must file...
+  3. (dist=0.8831) Individual Paper Return for Tax Year 2024 (Form) > None
+     Individual Paper Return for Tax Year 2024 (Form) -- this is a downloadable form, available at: https://download1.fbr.gov.pk/Docs/2024791373958696MANUA...
+  4. (dist=0.9789) Revising Income Tax Return > Revising Income Tax Return
+     Revising Income Tax Return
+An Income Tax Return can be revised within five (5) years of being originally filed to correct any omission or wrong statem...
+  5. (dist=1.0430) Income Tax Basics > Tax Year
+     Income Tax Basics
+Tax Year
+Is a period of twelve months ending on 30th day of June i.e. the financial year and is denoted by the calendar year in whic...
+
+================================================================================
+Q6 [Filing FAQs / direct]: Can I still file my return if I missed the deadline?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.5727) Filing Income Tax Return after deadline > Filing Income Tax Return after deadline
+     Filing Income Tax Return after deadline
+To file the online Income Tax Return after due date you would still have to complete the filing of Income Tax ...
+  2. (dist=1.1178) Revising Income Tax Return > Revising Income Tax Return
+     Revising Income Tax Return
+An Income Tax Return can be revised within five (5) years of being originally filed to correct any omission or wrong statem...
+  3. (dist=1.1733) Income Tax Due Dates > None [MANUALLY CORRECTED]
+     Income Tax Due Dates: Individuals and Associations of Persons (AOP) must file their Income Tax Return on or before 30th September. Companies must file...
+  4. (dist=1.1823) Penalty for late payment > Penalty for late payment
+     Penalty for late payment
+Failure to pay tax payable on due date will attract penalty or default surcharge or both. Failure to make payment on your tax...
+  5. (dist=1.2342) Inclusion in ATL > Inclusion in ATL
+     Inclusion in ATL
+A person's name will be part of the current ATL, if the Tax Return filed pertains to the Tax year of the relevant ATL. For example, t...
+
+================================================================================
+Q7 [Filing FAQs / direct]: How long do I need to keep my tax records?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.3895) Record keeping for Income Tax Return > Record keeping for Income Tax Return
+     Record keeping for Income Tax Return
+Persons having taxable income are bound to keep Income Tax Return records for six (6) years....
+  2. (dist=1.1029) Privacy of personal information > Privacy of personal information
+     Privacy of personal information
+By not filing your Income Tax Return in spite of having taxable income, you will be liable to the penalty and prosecut...
+  3. (dist=1.1476) Revising Income Tax Return > Revising Income Tax Return
+     Revising Income Tax Return
+An Income Tax Return can be revised within five (5) years of being originally filed to correct any omission or wrong statem...
+  4. (dist=1.1809) Income Tax Basics > Tax Year
+     Income Tax Basics
+Tax Year
+Is a period of twelve months ending on 30th day of June i.e. the financial year and is denoted by the calendar year in whic...
+  5. (dist=1.1907) Income Tax Due Dates > None [MANUALLY CORRECTED]
+     Income Tax Due Dates: Individuals and Associations of Persons (AOP) must file their Income Tax Return on or before 30th September. Companies must file...
+
+================================================================================
+Q8 [Filing FAQs / direct]: I forgot my Iris login password -- what do I do?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.3528) Password for Iris login > Reset Password
+     Password for Iris login
+Reset Password
+If you need to reset your password to gain access to Iris, you can click
+['Forgot Password'](https://iris.fbr.g...
+  2. (dist=0.5740) Password for Iris login > Change Password for Iris
+     Password for Iris login
+Change Password for Iris
+Password can be changed by logging into Iris and clicking 'Change Password' on the top right of the s...
+  3. (dist=0.7970) Password for Iris login > Password for Iris login
+     Password for Iris login
+E-enrollment with Federal Board of Revenue (FBR) provides you with NTN or Registration Number and password. You can login to I...
+  4. (dist=1.0011) File Income Tax Return > Logging into Iris
+     Logging into Iris
+File online Income Tax Return by logging into
+[Iris](https://iris.fbr.gov.pk/public/txplogin.xhtml)
+. Iris is online portal where In...
+  5. (dist=1.0759) Pay Income Tax > Logging into efile
+     Logging into efile
+In order to pay your Income Tax dues, the person has to log into
+[efile](https://e.fbr.gov.pk/AuthLogin.aspx)
+.
+You can log into ef...
+
+================================================================================
+Q9 [Filing FAQs / paraphrase]: Is my personal information safe when I file online?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.7581) Privacy of personal information > Privacy of personal information
+     Privacy of personal information
+By not filing your Income Tax Return in spite of having taxable income, you will be liable to the penalty and prosecut...
+  2. (dist=1.2583) Registration process > Online Registration
+     Registration process
+Online Registration
+**Online registration is available only for:**
+1. Individual and not for Association of Person or Company;
+**...
+  3. (dist=1.3079) File Income Tax Return > Logging into Iris
+     Logging into Iris
+File online Income Tax Return by logging into
+[Iris](https://iris.fbr.gov.pk/public/txplogin.xhtml)
+. Iris is online portal where In...
+  4. (dist=1.3699) Pay Income Tax > Logging into efile
+     Logging into efile
+In order to pay your Income Tax dues, the person has to log into
+[efile](https://e.fbr.gov.pk/AuthLogin.aspx)
+.
+You can log into ef...
+  5. (dist=1.4763) Completing Income Tax Return > Completing Income Tax Return
+     Completing Income Tax Return
+To complete online Income Tax Return a person must complete the Return of Income form and Wealth Statement (statement of ...
+
+================================================================================
+Q10 [Filing FAQs / direct]: What's the penalty if I pay my tax late?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.3834) Penalty for late payment > Penalty for late payment
+     Penalty for late payment
+Failure to pay tax payable on due date will attract penalty or default surcharge or both. Failure to make payment on your tax...
+  2. (dist=1.0002) Surcharge Payment - ATL > Surcharge Payment - ATL
+     Surcharge Payment - ATL
+The late filers of Income Tax Return for Tax Year 2020 can pay "
+***Surcharge for ATL***
+" as defined under section 182(A) of ...
+  3. (dist=1.0529) Inclusion in ATL > Surcharge Payment - ATL
+     Inclusion in ATL
+Surcharge Payment - ATL
+The late filers of Income Tax Return for Tax Year 2021 can pay "
+***Surcharge for ATL***
+" as defined under s...
+  4. (dist=1.1195) Filing Income Tax Return after deadline > Filing Income Tax Return after deadline
+     Filing Income Tax Return after deadline
+To file the online Income Tax Return after due date you would still have to complete the filing of Income Tax ...
+  5. (dist=1.2275) Computerized Payment Receipt (CPR) > Computerized Payment Receipt (CPR)
+     Computerized Payment Receipt (CPR)
+[Computerized Payment Receipt (CPR)](https://e.fbr.gov.pk/DocumentVerification.aspx)
+is generated after paying the ...
+
+================================================================================
+Q11 [Salary/Slabs / direct]: What income tax rate applies to someone earning Rs. 2500000 a year?
+Expected: Should retrieve Section 149 bracket and compute correctly
+--------------------------------------------------------------------------------
+  1. (dist=0.5894) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 7,000,000, the tax rate is Rs. 1,424,000 plus 35.00% of the amount exceeding Rs. 7,000,000. Ref...
+  2. (dist=0.5907) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 4,100,000 but does not exceed Rs. 5,600,000, the tax rate is Rs. 541,000 plus 29.00% of the amo...
+  3. (dist=0.5909) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 1,200,000 but does not exceed Rs. 2,200,000, the tax rate is Rs. 6,000 plus 11.00% of the amoun...
+  4. (dist=0.5926) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 5,600,000 but does not exceed Rs. 7,000,000, the tax rate is Rs. 976,000 plus 32.00% of the amo...
+  5. (dist=0.5928) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 600,000 but does not exceed Rs. 1,200,000, the tax rate is 1% of the amount exceeding Rs. 600,0...
+
+================================================================================
+Q12 [Salary/Slabs / direct]: What's the withholding tax rate on rent for an individual if the rent is Rs. 500000?
+Expected: Tests the manually-corrected Section 155 data
+--------------------------------------------------------------------------------
+  1. (dist=0.6653) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 155 (Rent of Immovable Property), Individual and AOP: Where the gross amount of rent exceeds Rs. 2,000,000, the tax rate is Rs. 155,000 plus 2...
+  2. (dist=0.7037) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 155 (Rent of Immovable Property), Individual and AOP: Where the gross amount of rent exceeds Rs. 600,000 but does not exceed Rs. 2,000,000, th...
+  3. (dist=0.7040) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 155 (Rent of Immovable Property), Individual and AOP: Where the gross amount of rent exceeds Rs. 300,000 but does not exceed Rs. 600,000, the ...
+  4. (dist=0.7369) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 155 (Rent of Immovable Property), Individual and AOP: Where the gross amount of rent does not exceed Rs. 300,000, the tax rate is Nil. Referen...
+  5. (dist=0.9564) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 5,600,000 but does not exceed Rs. 7,000,000, the tax rate is Rs. 976,000 plus 32.00% of the amo...
+
+================================================================================
+Q13 [Salary/Slabs / direct]: What withholding tax applies to dividends from a REIT?
+Expected: Dense WHT card retrieval test
+--------------------------------------------------------------------------------
+  1. (dist=0.9016) Withholding Tax Rate Card 2027 (PDF) > UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+     UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+
+ REIT scheme from Special Purpose Vehicle. 150 Dividend, Ancillary Information-B = . 150 Dividen...
+  2. (dist=0.9434) Withholding Tax Rate Card 2027 (PDF) > UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+     UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+ Non-ATL Rates = 50.00%. 150 Dividend, Reference for Rates = Division-I, Part-III of First Schedu...
+  3. (dist=1.1002) Withholding Tax Rate Card 2027 (PDF) > UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+     UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+ Non-ATL Rates = 8.00%. , Reference for Rates = Division-II of Part-III of First Schedule read wi...
+  4. (dist=1.1033) Withholding Tax Rate Card 2027 (PDF) > UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+     UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+ takaful operators, Reference for Rates = Division IC of Part III of the First Schedule read with...
+  5. (dist=1.1238) Withholding Tax Rate Card 2027 (PDF) > UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+     UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+ Non-ATL Rates = Rs. 600,000. , Reference for Rates = Division-VII of Part-IV of First Schedule r...
+
+================================================================================
+Q14 [Salary/Slabs / direct]: How is a property's value determined for tax purposes?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.9926) Valuation of Immovable Properties > Rates of Valuation of Immovable Properties in the following cities are:
+     Valuation Of Immovable Properties
+Rates of Valuation of Immovable Properties in the following cities are:
+ [Talagang](\propertyValuation\17476). [Abbo...
+  2. (dist=1.0644) Valuation of Immovable Properties > Rates of Valuation of Immovable Properties in the following cities are:
+     Valuation Of Immovable Properties
+Rates of Valuation of Immovable Properties in the following cities are:
+
+ [Abbottabad](\propertyValuation\17434) = [...
+  3. (dist=1.0673) Valuation of Immovable Properties > Rates of Valuation of Immovable Properties in the following cities are:
+     Valuation Of Immovable Properties
+Rates of Valuation of Immovable Properties in the following cities are:
+
+ [Mirpurkhas](\propertyValuation\17468). [A...
+  4. (dist=1.0681) Valuation of Immovable Properties > Rates of Valuation of Immovable Properties in the following cities are:
+     Valuation Of Immovable Properties
+Rates of Valuation of Immovable Properties in the following cities are:
+
+[Abbottabad](\propertyValuation\17434) = [A...
+  5. (dist=1.0707) Valuation of Immovable Properties > Rates of Valuation of Immovable Properties in the following cities are:
+     Valuation Of Immovable Properties
+Rates of Valuation of Immovable Properties in the following cities are:
+
+ [Abbottabad](\propertyValuation\17434) = [...
+
+================================================================================
+Q15 [ATL Rules / direct]: How do I check if someone is on the Active Taxpayer List?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.6009) Check Active Taxpayer Status > Check Active Taxpayer Status
+     Check Active Taxpayer Status
+Active Taxpayer status can be checked in the following three (3) ways:...
+  2. (dist=0.6611) Check Active Taxpayer Status > Check Active Taxpayer status by downloading ATL
+     Check Active Taxpayer Status
+Check Active Taxpayer status by downloading ATL
+You can also download ATL from:
+[Active Taxpayer List (Income Tax)](https...
+  3. (dist=0.6890) Check Active Taxpayer Status > Verification through Online Portal
+     Check Active Taxpayer Status
+Verification through Online Portal
+The
+[ATL status check](https://e.fbr.gov.pk/esbn/Service.aspx?PID=Dbue2kxCaiyqHHkwEvtw...
+  4. (dist=0.9744) Active Taxpayer List (ATL) > Active Taxpayer List (ATL)
+     Active Taxpayer List (ATL)
+The Active Taxpayer List (ATL) is a central record of online Income Tax Return filers for the previous Tax Year....
+  5. (dist=1.1984) Active Taxpayer List (ATL) > ATL Update
+     ATL Update
+ATL is published every financial year on the 1st March and is valid up to the last day of February of the next financial year. For example,...
+
+================================================================================
+Q16 [ATL Rules / direct]: What are the benefits of being on the Active Taxpayer List?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.7490) Active Taxpayer benefits > Being on the ATL gives you certain benefits:
+     Active Taxpayer benefits
+Being on the ATL gives you certain benefits:
+- Lower rates of tax deduction at source by banks on both profits and cash withd...
+  2. (dist=1.0110) Check Active Taxpayer Status > Check Active Taxpayer Status
+     Check Active Taxpayer Status
+Active Taxpayer status can be checked in the following three (3) ways:...
+  3. (dist=1.0399) Active Taxpayer List (ATL) > Active Taxpayer List (ATL)
+     Active Taxpayer List (ATL)
+The Active Taxpayer List (ATL) is a central record of online Income Tax Return filers for the previous Tax Year....
+  4. (dist=1.1667) Check Active Taxpayer Status > Check Active Taxpayer status by downloading ATL
+     Check Active Taxpayer Status
+Check Active Taxpayer status by downloading ATL
+You can also download ATL from:
+[Active Taxpayer List (Income Tax)](https...
+  5. (dist=1.3295) Check Active Taxpayer Status > Verification through Online Portal
+     Check Active Taxpayer Status
+Verification through Online Portal
+The
+[ATL status check](https://e.fbr.gov.pk/esbn/Service.aspx?PID=Dbue2kxCaiyqHHkwEvtw...
+
+================================================================================
+Q17 [Income Tax Basics / direct]: Who counts as a tax resident of Pakistan?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.5298) Income Tax Basics > Resident
+     Income Tax Basics
+Resident
+- An individual is Resident for a Tax Year if the individual:
+- Is present in Pakistan for a period of, or periods amountin...
+  2. (dist=0.6618) Income Tax Basics > Pakistan source Income
+     Income Tax Basics
+Pakistan source Income
+Is defined in section 101 of the Income Tax Ordinance, 2001, which caters for Incomes under different heads a...
+  3. (dist=0.7688) Income Tax Basics > Foreign source Income
+     Income Tax Basics
+Foreign source Income
+Is any Income, which is not a Pakistan source Income....
+  4. (dist=0.8002) Income Tax Basics > Person
+     Income Tax Basics
+Person
+- An Individual;
+- A Company or Association of Persons incorporated, formed, organized or established in Pakistan or elsewher...
+  5. (dist=0.8985) Withholding Tax Rate Card 2027 (PDF) > 2 Special  provisions  in the First Schedule, Part-IV, Division-VII  (clause  2) for rates against  section 231B(2):
+     2 Special  provisions  in the First Schedule, Part-IV, Division-VII  (clause  2) for rates against  section 231B(2):
+Provided that where the engine ca...
+
+================================================================================
+Q18 [Income Tax Basics / direct]: What is a Tax Year vs a Special Tax Year?
+Expected: Should retrieve and answer from corpus
+--------------------------------------------------------------------------------
+  1. (dist=0.4094) Income Tax Basics > Special Tax Year
+     Income Tax Basics
+Special Tax Year
+Means any period of twelve months and is denoted by the calendar year relevant to the Normal Tax Year in which clos...
+  2. (dist=0.6139) Income Tax Basics > Tax Year
+     Income Tax Basics
+Tax Year
+Is a period of twelve months ending on 30th day of June i.e. the financial year and is denoted by the calendar year in whic...
+  3. (dist=1.0982) Income Tax Basics > Non-Resident
+     Income Tax Basics
+Non-Resident
+An Association of Persons, a Company and an Individual are Non-Resident for a Tax Year if they are not Resident for tha...
+  4. (dist=1.1434) Withholding Tax Rate Card 2027 (PDF) > UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+     UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+ Non-ATL Rates = 8.00%. , Reference for Rates = Division-II of Part-III of First Schedule read wi...
+  5. (dist=1.1486) Withholding Tax Rate Card 2027 (PDF) > UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+     UPDATED UP TO JUNE 30, 2026 AS PER FINANCE ACT, 2026
+Disclaimer: This Withholding Tax Rates Card is an effort to facilitate taxpayers, withholding age...
+
+================================================================================
+Q19 [Income Tax Basics / direct]: What is income tax?
+Expected: No clean plain-language definition in corpus -- expect partial, not a fail
+--------------------------------------------------------------------------------
+  1. (dist=0.5477) Income Tax Basics > Taxable Income
+     Income Tax Basics
+Taxable Income
+Taxable Income means Total Income reduced by donations qualifying straight for deductions and certain deductible allo...
+  2. (dist=0.5907) Income Tax Basics > Person
+     Income Tax Basics
+Person
+- An Individual;
+- A Company or Association of Persons incorporated, formed, organized or established in Pakistan or elsewher...
+  3. (dist=0.6467) Income Tax Basics > Total Income
+     Income Tax Basics
+Total Income
+Total Income is the aggregate of Income chargeable to Tax under each head of Income....
+  4. (dist=0.7232) Income Tax Basics > Head of Income
+     Income Tax Basics
+Head of Income
+Under the Income Tax Ordinance, 2001, all Income are broadly divided into following five heads of Income:
+- Salary;
+-...
+  5. (dist=0.7763) Income Tax Basics > Tax Year
+     Income Tax Basics
+Tax Year
+Is a period of twelve months ending on 30th day of June i.e. the financial year and is denoted by the calendar year in whic...
+
+================================================================================
+Q20 [Out of scope / refusal]: Can you check my personal tax filing history?
+Expected: Must refuse -- personal/account data is out of scope (rule 1.1)
+--------------------------------------------------------------------------------
+  1. (dist=0.8670) Privacy of personal information > Privacy of personal information
+     Privacy of personal information
+By not filing your Income Tax Return in spite of having taxable income, you will be liable to the penalty and prosecut...
+  2. (dist=1.0706) Record keeping for Income Tax Return > Record keeping for Income Tax Return
+     Record keeping for Income Tax Return
+Persons having taxable income are bound to keep Income Tax Return records for six (6) years....
+  3. (dist=1.0745) Individual Paper Return for Tax Year 2024 (Form) > None
+     Individual Paper Return for Tax Year 2024 (Form) -- this is a downloadable form, available at: https://download1.fbr.gov.pk/Docs/2024791373958696MANUA...
+  4. (dist=1.1355) Check Active Taxpayer Status > Verification through Online Portal
+     Check Active Taxpayer Status
+Verification through Online Portal
+The
+[ATL status check](https://e.fbr.gov.pk/esbn/Service.aspx?PID=Dbue2kxCaiyqHHkwEvtw...
+  5. (dist=1.1481) Check Active Taxpayer Status > Check Active Taxpayer status by downloading ATL
+     Check Active Taxpayer Status
+Check Active Taxpayer status by downloading ATL
+You can also download ATL from:
+[Active Taxpayer List (Income Tax)](https...
+
+================================================================================
+Q21 [Out of scope / refusal]: How do I log into IRIS with my CNIC and password?
+Expected: Must refuse -- login-gated source (rule 1.2)
+--------------------------------------------------------------------------------
+  1. (dist=0.5159) Password for Iris login > Reset Password
+     Password for Iris login
+Reset Password
+If you need to reset your password to gain access to Iris, you can click
+['Forgot Password'](https://iris.fbr.g...
+  2. (dist=0.5771) Password for Iris login > Change Password for Iris
+     Password for Iris login
+Change Password for Iris
+Password can be changed by logging into Iris and clicking 'Change Password' on the top right of the s...
+  3. (dist=0.6862) Password for Iris login > Password for Iris login
+     Password for Iris login
+E-enrollment with Federal Board of Revenue (FBR) provides you with NTN or Registration Number and password. You can login to I...
+  4. (dist=0.8909) File Income Tax Return > Logging into Iris
+     Logging into Iris
+File online Income Tax Return by logging into
+[Iris](https://iris.fbr.gov.pk/public/txplogin.xhtml)
+. Iris is online portal where In...
+  5. (dist=0.9663) Pay Income Tax > Logging into efile
+     Logging into efile
+In order to pay your Income Tax dues, the person has to log into
+[efile](https://e.fbr.gov.pk/AuthLogin.aspx)
+.
+You can log into ef...
+
+================================================================================
+Q22 [Out of scope / refusal]: How do I fill out the manual paper tax return form?
+Expected: Must refuse or point to online Iris process -- known scope gap
+--------------------------------------------------------------------------------
+  1. (dist=0.6017) Individual Paper Return for Tax Year 2024 (Form) > None
+     Individual Paper Return for Tax Year 2024 (Form) -- this is a downloadable form, available at: https://download1.fbr.gov.pk/Docs/2024791373958696MANUA...
+  2. (dist=0.8362) Completing Income Tax Return > Salaried Person - Income Tax Return
+     Completing Income Tax Return
+Salaried Person - Income Tax Return
+To facilitate salaried person in filing their Income Tax Return, Declaration form 114...
+  3. (dist=0.9075) Register For Income Tax (Taxpayer Registration basics) > Register For Income Tax
+     Register For Income Tax
+The first step of filing your Income Tax Return is to register yourself with Federal Board of Revenue (FBR).
+- For Income Tax ...
+  4. (dist=0.9883) Completing Income Tax Return > Completing Income Tax Return
+     Completing Income Tax Return
+To complete online Income Tax Return a person must complete the Return of Income form and Wealth Statement (statement of ...
+  5. (dist=1.0681) e-Payments > e-Payments
+     e-Payments
+In the e-Payments tab, the person will access Create Payment and then select Income Tax Annual Return option.
+The resulting selection will ...
+
+================================================================================
+Q23 [Salary/Slabs / calculation]: My taxable salary income is Rs. 300000 a year -- how much income tax do I owe?
+Expected: Unambiguous 0% bracket, expect Rs. 0
+--------------------------------------------------------------------------------
+  1. (dist=0.6340) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 5,600,000 but does not exceed Rs. 7,000,000, the tax rate is Rs. 976,000 plus 32.00% of the amo...
+  2. (dist=0.6402) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 3,200,000 but does not exceed Rs. 4,100,000, the tax rate is Rs. 316,000 plus 25.00% of the amo...
+  3. (dist=0.6410) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 7,000,000, the tax rate is Rs. 1,424,000 plus 35.00% of the amount exceeding Rs. 7,000,000. Ref...
+  4. (dist=0.6411) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 4,100,000 but does not exceed Rs. 5,600,000, the tax rate is Rs. 541,000 plus 29.00% of the amo...
+  5. (dist=0.6437) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 1,200,000 but does not exceed Rs. 2,200,000, the tax rate is Rs. 6,000 plus 11.00% of the amoun...
+
+================================================================================
+Q24 [Salary/Slabs / calculation]: My taxable salary income is Rs. 1500000 a year -- how much tax will I pay?
+Expected: Tests formula application: Rs 6000 + 11% of amount over Rs. 1200000 = Rs. 39000
+--------------------------------------------------------------------------------
+  1. (dist=0.5957) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income does not exceed Rs. 600,000, the tax rate is 0%. Reference: Division-I, Part-I of First Schedule read with ...
+  2. (dist=0.5962) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 7,000,000, the tax rate is Rs. 1,424,000 plus 35.00% of the amount exceeding Rs. 7,000,000. Ref...
+  3. (dist=0.5994) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 4,100,000 but does not exceed Rs. 5,600,000, the tax rate is Rs. 541,000 plus 29.00% of the amo...
+  4. (dist=0.6023) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 5,600,000 but does not exceed Rs. 7,000,000, the tax rate is Rs. 976,000 plus 32.00% of the amo...
+  5. (dist=0.6039) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 149 (Salary): Where taxable income exceeds Rs. 1,200,000 but does not exceed Rs. 2,200,000, the tax rate is Rs. 6,000 plus 11.00% of the amoun...
+
+================================================================================
+Q25 [Ambiguous / clarification]: My revenue is 3 lacs -- how much income tax do I pay?
+Expected: Ambiguous (salary vs business income, period unclear) -- bot should ask/clarify, not silently guess. Also: no general non-salary slab table exists in corpus.
+--------------------------------------------------------------------------------
+  1. (dist=0.9247) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 152 (Payment to Non-Residents), Sub-section (1AA): tax rate 5.00%. Reference: Division-II of Part-III of First Schedule, read with R.10 (b), (...
+  2. (dist=0.9315) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 152 (Payment to Non-Residents), Sub-section (1AAA): tax rate 10.00%. Reference: Division-II of Part-III of First Schedule, read with R.10 (b),...
+  3. (dist=0.9411) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 152 (Payment to Non-Residents), Sub-section (1A): tax rate 7.00%. Reference: Division-II of Part-III of First Schedule, read with R.10 (b), (b...
+  4. (dist=0.9543) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 152 (Payment to Non-Residents), Sub-section (1): tax rate 15.00%. Reference: Division-IV of Part-I of First Schedule....
+  5. (dist=0.9650) Withholding Tax Rate Card 2027 (PDF) > None [MANUALLY CORRECTED]
+     Section 152 (Payment to Non-Residents), Sub-section (1C): tax rate 10.00%. Reference: Division-IV of Part-I of First Schedule....
+
