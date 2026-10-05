@@ -1,0 +1,9 @@
+.env
+.venv
+.git
+__pycache__
+data/raw
+data/cleaned
+data/docling_json
+eval
+*.md
