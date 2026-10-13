@@ -8,62 +8,216 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
   <style>
+    :root {
+      --navy: #0b1148;
+      --indigo: #4f63d8;
+      --periwinkle: #6f86ee;
+      --purple: #7c4ddb;
+      --amber: #ffb62e;
+      --amber-hover: #ffc24f;
+      --bg: #f3f5fb;
+      --surface: #ffffff;
+      --surface-2: #eef1fb;
+      --border: #dfe4f4;
+      --text: #141a3d;
+      --muted: #626a8f;
+      --error-bg: #fdecec;
+      --error-text: #9a1f1f;
+      --shadow: 0 2px 4px rgba(11,17,72,.05), 0 16px 40px rgba(11,17,72,.12);
+    }
+    * { box-sizing: border-box; }
     [hidden] { display: none !important; }
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; color: #222; }
-    h1 { font-size: 1.3rem; }
-    .note { color: #666; font-size: 0.85rem; margin-bottom: 1rem; }
-    .topbar { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #555; margin-bottom: 1rem; }
-    #chat { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; }
-    .msg { padding: 0.6rem 0.9rem; border-radius: 8px; }
-    .user { background: #e8f0fe; align-self: flex-end; max-width: 85%; white-space: pre-wrap; }
-    .bot { background: #f3f3f3; line-height: 1.5; }
-    .bot p { margin: 0.4rem 0; }
-    .bot table { border-collapse: collapse; margin: 0.6rem 0; font-size: 0.9rem; width: 100%; }
-    .bot th, .bot td { border: 1px solid #ccc; padding: 0.35rem 0.6rem; text-align: left; vertical-align: top; }
-    .bot th { background: #e6e6e6; }
-    .bot ul, .bot ol { margin: 0.4rem 0; padding-left: 1.4rem; }
-    .error { background: #fde8e8; }
-    .sources { margin-top: 0.5rem; font-size: 0.85rem; border-top: 1px solid #ddd; padding-top: 0.5rem; }
-    .sources a { color: #1a5fb4; }
-    form { display: flex; gap: 0.5rem; }
-    input { flex: 1; padding: 0.6rem; font-size: 1rem; }
-    button { padding: 0.6rem 1rem; font-size: 1rem; cursor: pointer; }
-    #authForm { flex-direction: column; max-width: 340px; }
-    #authMsg { color: #b00020; font-size: 0.9rem; margin-top: 0.5rem; min-height: 1.2rem; }
-    .linkbtn { background: none; border: none; color: #1a5fb4; padding: 0; font-size: 0.85rem; text-decoration: underline; }
+    body {
+      margin: 0; min-height: 100vh;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.5;
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+
+    /* Hero */
+    .hero {
+      background:
+        radial-gradient(900px 300px at 85% -10%, rgba(124,77,219,.55), transparent 60%),
+        radial-gradient(700px 300px at 0% 110%, rgba(111,134,238,.45), transparent 60%),
+        linear-gradient(135deg, var(--navy) 0%, #1a2a8f 55%, #3a3fc0 100%);
+      color: #fff; padding-bottom: 92px;
+    }
+    header { display: flex; align-items: center; gap: 12px; padding: 18px 0; }
+    .logo {
+      width: 42px; height: 42px; border-radius: 12px; flex: none; display: grid; place-items: center;
+      background: #fff; color: var(--indigo); box-shadow: 0 4px 14px rgba(0,0,0,.2);
+    }
+    .logo svg { width: 22px; height: 22px; }
+    .brand { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; }
+    .brand small { display: block; font-weight: 500; font-size: 0.72rem; opacity: .75; letter-spacing: 0; }
+    .spacer { flex: 1; }
+    .userbox { display: flex; align-items: center; gap: 10px; font-size: 0.8rem; color: rgba(255,255,255,.8); }
+    .userbox span { max-width: 170px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .pill {
+      border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.1); color: #fff;
+      border-radius: 999px; padding: 6px 14px; font-size: 0.8rem; cursor: pointer; font-family: inherit;
+    }
+    .pill:hover { background: rgba(255,255,255,.2); }
+    .herotext { padding: 18px 0 0; max-width: 560px; }
+    .eyebrow {
+      display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .herotext h2 { margin: 0 0 8px; font-size: clamp(1.5rem, 4.5vw, 2.1rem); line-height: 1.15; letter-spacing: -0.02em; }
+    .herotext p { margin: 0; color: rgba(255,255,255,.8); font-size: 0.95rem; }
+
+    /* Main card overlapping hero */
+    .main { margin-top: -64px; padding-bottom: 28px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow);
+    }
+
+    /* Auth */
+    .authcard { max-width: 400px; margin: 0 auto; padding: 28px; }
+    .authcard h3 { margin: 0 0 4px; font-size: 1.25rem; letter-spacing: -0.01em; }
+    .authcard .sub { margin: 0 0 18px; font-size: 0.88rem; color: var(--muted); }
+    #authForm { display: flex; flex-direction: column; gap: 10px; }
+    input {
+      width: 100%; padding: 12px 14px; font-size: 1rem; font-family: inherit; color: var(--text);
+      background: #fff; border: 1px solid var(--border); border-radius: 12px; outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    input:focus { border-color: var(--indigo); box-shadow: 0 0 0 3px rgba(79,99,216,.18); }
+    .btn {
+      padding: 12px 18px; font-size: 0.95rem; font-weight: 700; font-family: inherit; border-radius: 12px;
+      border: 1px solid transparent; cursor: pointer; transition: background .15s, transform .05s;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--amber); color: var(--navy); }
+    .btn-primary:hover { background: var(--amber-hover); }
+    .btn-primary:disabled { opacity: .55; cursor: not-allowed; }
+    .btn-ghost { background: transparent; color: var(--indigo); border-color: var(--border); }
+    .btn-ghost:hover { background: var(--surface-2); }
+    #authMsg { color: var(--error-text); font-size: 0.88rem; margin-top: 12px; min-height: 1.2rem; }
+
+    /* Chat card */
+    #app { display: flex; flex-direction: column; }
+    #chat { display: flex; flex-direction: column; gap: 14px; padding: 22px 20px 8px; min-height: 280px; }
+
+    .welcome { text-align: center; padding: 14px 4px 6px; }
+    .welcome h3 { margin: 0 0 4px; font-size: 1.1rem; }
+    .welcome p { margin: 0 auto 16px; max-width: 460px; color: var(--muted); font-size: 0.88rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .chip {
+      border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
+      padding: 9px 14px; border-radius: 999px; font-size: 0.84rem; cursor: pointer; font-family: inherit;
+    }
+    .chip:hover { border-color: var(--purple); background: #f0eafc; color: #4a22a8; }
+
+    .msg { max-width: 92%; padding: 12px 16px; border-radius: 16px; font-size: 0.95rem; }
+    .user {
+      align-self: flex-end; color: #fff; white-space: pre-wrap; max-width: 85%; border-bottom-right-radius: 4px;
+      background: linear-gradient(135deg, var(--indigo), var(--purple));
+    }
+    .bot {
+      align-self: flex-start; background: var(--surface-2); border: 1px solid var(--border); border-bottom-left-radius: 4px;
+    }
+    .bot > :first-child { margin-top: 0; }
+    .bot p { margin: 0.5rem 0; }
+    .bot ul, .bot ol { margin: 0.5rem 0; padding-left: 1.4rem; }
+    .bot li { margin: 0.2rem 0; }
+    .bot a { color: var(--indigo); }
+    .bot code { background: #fff; padding: 1px 5px; border-radius: 5px; font-size: 0.88em; }
+    .bot .tablewrap { overflow-x: auto; }
+    .bot table { border-collapse: collapse; margin: 0.7rem 0; font-size: 0.88rem; width: 100%; background: #fff; }
+    .bot th, .bot td { border: 1px solid var(--border); padding: 7px 10px; text-align: left; vertical-align: top; }
+    .bot th { background: #e6eafb; }
+    .error { align-self: flex-start; background: var(--error-bg); color: var(--error-text); }
+
+    .thinking { color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .dots { display: inline-flex; gap: 4px; }
+    .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); animation: blink 1.2s infinite; }
+    .dots i:nth-child(2) { animation-delay: .2s; }
+    .dots i:nth-child(3) { animation-delay: .4s; }
+    @keyframes blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+
+    .sources { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+    .sources .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
+    .sources .list { display: flex; flex-direction: column; gap: 6px; }
+    .src {
+      display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 10px;
+      background: #fff; border: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: 0.82rem;
+    }
+    .src:hover { border-color: var(--indigo); }
+    .src .mk {
+      flex: none; min-width: 26px; text-align: center; font-weight: 800; font-size: 0.72rem;
+      background: var(--navy); color: #fff; border-radius: 6px; padding: 1px 6px;
+    }
+
+    .inputbar { position: sticky; bottom: 0; padding: 12px 20px 16px; background: linear-gradient(to top, #fff 75%, rgba(255,255,255,0)); border-radius: 0 0 20px 20px; }
+    #form { display: flex; gap: 8px; }
+    #q { border-radius: 999px; padding-left: 18px; background: var(--surface-2); }
+    #send { border-radius: 999px; padding: 0 24px; }
+    .disclaimer { text-align: center; font-size: 0.72rem; color: var(--muted); margin-top: 8px; }
+
+    @media (max-width: 520px) {
+      .userbox span { display: none; }
+      .msg { max-width: 100%; }
+      #chat { padding: 18px 14px 8px; }
+      .inputbar { padding: 10px 14px 14px; }
+    }
   </style>
 </head>
 <body>
-  <h1>FBR Tax FAQ Chatbot</h1>
-  <div class="note">General FBR tax law and procedure questions only. It cannot look up personal tax accounts.</div>
-
-  <div id="auth" hidden>
-    <form id="authForm">
-      <input id="email" type="email" placeholder="Email" autocomplete="email" required>
-      <input id="password" type="password" placeholder="Password (min 6 characters)" autocomplete="current-password" required minlength="6">
-      <button type="submit">Sign in</button>
-      <button type="button" id="signupBtn">Create account</button>
-    </form>
-    <div id="authMsg"></div>
-  </div>
-
-  <div id="app" hidden>
-    <div class="topbar">
-      <span id="userEmail"></span>
-      <button class="linkbtn" id="signoutBtn" type="button">Sign out</button>
+  <div class="hero">
+    <div class="wrap">
+      <header>
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+        </div>
+        <div class="brand">Tax FAQ Bot<small>Unofficial · FBR public documents</small></div>
+        <div class="spacer"></div>
+        <div class="userbox" id="userbox" hidden>
+          <span id="userEmail"></span>
+          <button class="pill" id="signoutBtn" type="button">Sign out</button>
+        </div>
+      </header>
+      <div class="herotext">
+        <span class="eyebrow">Pakistan income tax</span>
+        <h2>Straight answers, backed by FBR sources.</h2>
+        <p>Registration, filing, ATL rules, salary slabs and withholding rates. Every answer cites the page it came from.</p>
+      </div>
     </div>
-    <div id="chat"></div>
-    <form id="form">
-      <input id="q" type="text" placeholder="Ask a tax question..." autocomplete="off" required minlength="3" maxlength="500">
-      <button id="send" type="submit">Ask</button>
-    </form>
   </div>
+
+  <main class="wrap main">
+    <div id="auth" hidden>
+      <div class="card authcard">
+        <h3>Welcome</h3>
+        <p class="sub">Sign in or create an account to ask tax questions.</p>
+        <form id="authForm">
+          <input id="email" type="email" placeholder="Email" autocomplete="email" required>
+          <input id="password" type="password" placeholder="Password (min 6 characters)" autocomplete="current-password" required minlength="6">
+          <button class="btn btn-primary" type="submit">Sign in</button>
+          <button class="btn btn-ghost" type="button" id="signupBtn">Create account</button>
+        </form>
+        <div id="authMsg"></div>
+      </div>
+    </div>
+
+    <div id="app" class="card" hidden>
+      <div id="chat"></div>
+      <div class="inputbar">
+        <form id="form">
+          <input id="q" type="text" placeholder="Ask a tax question..." autocomplete="off" required minlength="3" maxlength="500">
+          <button class="btn btn-primary" id="send" type="submit">Ask</button>
+        </form>
+        <div class="disclaimer">Unofficial student project, not affiliated with FBR. General law and procedure only; it cannot look up personal tax accounts. Not tax advice.</div>
+      </div>
+    </div>
+  </main>
 
   <script>
     let sb = null;
 
     const authBox = document.getElementById("auth");
     const appBox = document.getElementById("app");
+    const userbox = document.getElementById("userbox");
     const authForm = document.getElementById("authForm");
     const authMsg = document.getElementById("authMsg");
     const emailEl = document.getElementById("email");
@@ -74,10 +228,42 @@
     const input = document.getElementById("q");
     const send = document.getElementById("send");
 
+    const EXAMPLES = [
+      "What documents do I need for company NTN registration?",
+      "What is the ATL and why does it matter?",
+      "What is the due date for filing a return?",
+      "How much tax on a salary of Rs 1,500,000?",
+    ];
+
+    function renderWelcome() {
+      chat.innerHTML = "";
+      const w = document.createElement("div");
+      w.className = "welcome";
+      w.id = "welcome";
+      const h = document.createElement("h3");
+      h.textContent = "What would you like to know?";
+      const p = document.createElement("p");
+      p.textContent = "Type a question below or try one of these.";
+      const chips = document.createElement("div");
+      chips.className = "chips";
+      EXAMPLES.forEach((t) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "chip";
+        b.textContent = t;
+        b.addEventListener("click", () => { input.value = t; form.requestSubmit(); });
+        chips.appendChild(b);
+      });
+      w.append(h, p, chips);
+      chat.appendChild(w);
+    }
+
     function showState(session) {
       authBox.hidden = !!session;
       appBox.hidden = !session;
+      userbox.hidden = !session;
       userEmail.textContent = session ? session.user.email : "";
+      if (session && chat.children.length === 0) renderWelcome();
     }
 
     async function init() {
@@ -117,10 +303,31 @@
       chat.innerHTML = "";
     });
 
+    function clearWelcome() {
+      const welcome = document.getElementById("welcome");
+      if (welcome) welcome.remove();
+    }
+
     function addMsg(text, cls) {
+      clearWelcome();
       const div = document.createElement("div");
       div.className = "msg " + cls;
       div.textContent = text;   // textContent, never innerHTML: model output is untrusted
+      chat.appendChild(div);
+      div.scrollIntoView({ behavior: "smooth", block: "end" });
+      return div;
+    }
+
+    function addThinking() {
+      clearWelcome();
+      const div = document.createElement("div");
+      div.className = "msg bot thinking";
+      const label = document.createElement("span");
+      label.textContent = "Searching FBR documents";
+      const dots = document.createElement("span");
+      dots.className = "dots";
+      dots.innerHTML = "<i></i><i></i><i></i>";
+      div.append(label, dots);
       chat.appendChild(div);
       div.scrollIntoView({ behavior: "smooth", block: "end" });
       return div;
@@ -130,17 +337,26 @@
       if (!data.sources || data.sources.length === 0) return;
       const box = document.createElement("div");
       box.className = "sources";
-      box.append("Sources:");
+      const label = document.createElement("div");
+      label.className = "label";
+      label.textContent = "Sources";
+      const list = document.createElement("div");
+      list.className = "list";
       data.sources.forEach((s) => {
-        const row = document.createElement("div");
         const a = document.createElement("a");
+        a.className = "src";
         a.href = s.source_url;
         a.target = "_blank";
         a.rel = "noopener";
-        a.textContent = `${s.marker} ${s.title}`;
-        row.appendChild(a);
-        box.appendChild(row);
+        const mk = document.createElement("span");
+        mk.className = "mk";
+        mk.textContent = s.marker;
+        const t = document.createElement("span");
+        t.textContent = s.title;
+        a.append(mk, t);
+        list.appendChild(a);
       });
+      box.append(label, list);
       botDiv.appendChild(box);
     }
 
@@ -155,7 +371,7 @@
       addMsg(question, "user");
       input.value = "";
       send.disabled = true;
-      const pending = addMsg("Thinking...", "bot");
+      const pending = addThinking();
       try {
         const res = await fetch("/chat", {
           method: "POST",
@@ -175,7 +391,14 @@
           const detail = typeof data.detail === "string" ? data.detail : "Please enter a valid question (3-500 characters).";
           pending.textContent = `Error ${res.status}: ${detail}`;
         } else {
+          pending.className = "msg bot";
           pending.innerHTML = DOMPurify.sanitize(marked.parse(data.answer));
+          pending.querySelectorAll("table").forEach((t) => {
+            const wrap = document.createElement("div");
+            wrap.className = "tablewrap";
+            t.replaceWith(wrap);
+            wrap.appendChild(t);
+          });
           addSources(pending, data);
         }
       } catch (err) {
@@ -184,6 +407,7 @@
       } finally {
         send.disabled = false;
         input.focus();
+        pending.scrollIntoView({ behavior: "smooth", block: "end" });
       }
     });
 
